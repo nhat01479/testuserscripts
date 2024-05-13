@@ -8,8 +8,10 @@
 // @description 19:58:56 13/5/2024
 // ==/UserScript==
 
-(()=> {
+(function () {
+  'use strict';
+  window.onload(alert('Hello'))
 
-  document.body.style.transform = "rotate(180deg)";
-  })()
+
+})
   
