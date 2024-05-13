@@ -1,17 +1,40 @@
 // ==UserScript==
 // @name        New script
 // @namespace   Violentmonkey Scripts
-// @match       *://example.org/*
+// @match       *://*.decathlon.net/*
 // @grant       none
 // @version     1.0
 // @author      -
 // @description 19:58:56 13/5/2024
 // ==/UserScript==
 
-(function () {
-  'use strict';
-  window.onload(alert('Hello'))
+(() => {
+  // Hàm chờ 3 giây
+  function waitAndExecute() {
+      const selectElement = document.querySelector('select[name="orgaId"]');
+      console.log(selectElement);
+
+      if (selectElement !== null) {
+          // Lấy tất cả các tùy chọn trong phần tử <select>
+          const options = selectElement.querySelectorAll('option');
 
 
-})
+          // Duyệt qua từng tùy chọn
+          options.forEach(option => {
+              // Kiểm tra nếu giá trị của tùy chọn là "88"
+              if (option.value === "88") {
+                  // Chọn tùy chọn có giá trị là "88"
+                  option.selected = true;
+              }
+          });
+
+          // Gửi sự kiện onchange (giả lập sự kiện đã thay đổi)
+          selectElement.dispatchEvent(new Event('change'));
+      }
+      console.log(selectElement);
+  }
+
+  // Hàm chờ 1.5 giây trước khi thực hiện
+  setTimeout(waitAndExecute, 1500);
+})();
   
