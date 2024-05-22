@@ -42,29 +42,31 @@
         const orderInput = document.querySelector('#orderNumberDirectAccess');
         if (orderInput) {
             orderInput.focus();
-            try {
-                    const text = await navigator.clipboard.readText();
-                    // console.log(typeof text)
-                    // console.log(text.length)
+           
+            //ClipboardKhông hoạt động trên firefox
+            // try {
+            //         const text = await navigator.clipboard.readText();
+            //         // console.log(typeof text)
+            //         // console.log(text.length)
 
-                    orderInput.value = text;
+            //         orderInput.value = text;
 
-                    //Gửi sự kiện Enter sau khi gán giá trị
-                    const enterEvent = new KeyboardEvent('keydown', {
-                        bubbles: true,
-                        cancelable: true,
-                        key: 'Enter',
-                        code: 'Enter',
-                        keyCode: 13,
-                        which: 13
-                    });
-                    if (text.length == 12) {
-                      orderInput.dispatchEvent(enterEvent);
-                    }
+            //         //Gửi sự kiện Enter sau khi gán giá trị
+            //         const enterEvent = new KeyboardEvent('keydown', {
+            //             bubbles: true,
+            //             cancelable: true,
+            //             key: 'Enter',
+            //             code: 'Enter',
+            //             keyCode: 13,
+            //             which: 13
+            //         });
+            //         if (text.length == 12) {
+            //           orderInput.dispatchEvent(enterEvent);
+            //         }
 
-                } catch (err) {
-                    console.error('Failed to read clipboard contents: ', err);
-                }
+            //     } catch (err) {
+            //         console.error('Failed to read clipboard contents: ', err);
+            //     }
         }
     }
 
